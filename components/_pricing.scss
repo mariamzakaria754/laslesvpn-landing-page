@@ -1,0 +1,130 @@
+.pricing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: calc(var(--default-padding) * 4);
+  width: 100%;
+
+  &__title {
+    margin-top: calc(var(--default-padding) * 3);
+  }
+
+  &__description {
+    max-width: 60rem;
+    text-align: center;
+  }
+
+  .columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: calc(var(--default-padding) * 3);
+    align-items: stretch;
+    margin-top: var(--default-padding);
+    margin-bottom: calc(var(--default-padding) * 6);
+    width: 100%;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--default-radius);
+    border: 2px solid var(--color-border-cards);
+    background-color: var(--color-white);
+    gap: var(--default-padding);
+
+    padding: calc(var(--default-padding) * 3) 6rem;
+    flex: 1 1 30rem;
+    max-width: 38rem;
+
+    align-items: center;
+    transition: 0.3s ease;
+
+    &:hover {
+      transform: translateY(-10px);
+    }
+    &__image {
+      height: auto;
+      max-width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    &__title {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    &__lists {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: var(--default-padding);
+      color: var(--color-blue-gray);
+      font-size: var(--font-size-14);
+      font-weight: var(--font-weight-regular);
+      margin-bottom: calc(var(--default-padding) * 4);
+    }
+    &__list {
+      display: flex;
+
+      align-items: center;
+      justify-content: flex-start;
+    }
+    &__list::before {
+      content: "";
+      width: 4rem;
+      height: 4rem;
+      flex-shrink: 0;
+      margin-right: 1rem;
+      background: url("../assets/jam-check.svg") no-repeat center / contain;
+    }
+
+    &__plan {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+    &__span {
+      display: flex;
+
+      font-size: 2.5rem;
+      color: #0b132a;
+      &--free {
+        font-weight: 600;
+        color: #0b132a;
+        gap: 2rem;
+      }
+      &--number {
+        font-weight: 600;
+        color: #0b132a;
+        margin-right: 0.5rem;
+      }
+      &--text {
+        font-weight: 400;
+        color: #4f5665;
+      }
+    }
+
+    &__btn {
+      border: 2px solid var(--color-red);
+      background: transparent;
+      color: var(--color-red);
+      font-weight: var(--font-weight-bold);
+      cursor: pointer;
+      width: 100%;
+    }
+
+    &__plan-btn--permium {
+      background-color: var(--color-red);
+      color: var(--color-white);
+
+      box-shadow: 0 0.94rem 5rem rgba(245, 56, 56, 0.4);
+    }
+
+    &:last-child {
+      border-color: var(--color-red);
+      transform: scale(1.01);
+    }
+  }
+}

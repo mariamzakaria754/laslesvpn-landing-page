@@ -1,0 +1,50 @@
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: calc(var(--default-padding) * 5.5);
+  align-items: center;
+  justify-content: center;
+
+  &__image {
+    flex: 1;
+    max-width: 80%;
+  }
+  &__content {
+    display: flex;
+
+    flex: 1;
+    margin-top: var(--default-padding);
+    flex-direction: column;
+    gap: calc(var(--default-padding) * 1.5);
+  }
+  &__title--span {
+    display: block;
+    max-width: 450px;
+  }
+  &__description {
+    max-width: 380px;
+  }
+  &__lists {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--default-padding) * 1.5);
+    color: var(--color-blue-gray);
+    font-size: var(--font-size-14);
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--default-padding) / 2);
+  }
+
+  &__list::before {
+    content: "";
+    width: 3rem;
+    height: 3rem;
+    flex-shrink: 0;
+
+    background: url("../assets/check-circle.svg") no-repeat center / contain;
+    margin-top: 0.15rem;
+  }
+}

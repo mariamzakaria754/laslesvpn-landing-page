@@ -1,0 +1,32 @@
+.subscribe {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+
+  &__card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--default-padding) * 2);
+    border-radius: 1.5rem;
+    gap: 2rem;
+  }
+  &__leftSide {
+    display: flex;
+    flex-direction: column;
+  }
+  &__title {
+    line-height: 1.3;
+
+    &--span {
+      display: block;
+    }
+  }
+  &__description {
+    margin-bottom: calc(var(--default-padding));
+    text-align: left;
+  }
+  &__rightSide {
+    flex-shrink: 0;
+  }
+}

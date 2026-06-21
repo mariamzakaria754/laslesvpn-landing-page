@@ -1,0 +1,155 @@
+// ============================================================
+// HAMBURGER — checkbox hack (no JavaScript)
+// ============================================================
+
+// الـ checkbox نفسه مخفي تماماً
+.header__toggle-input {
+  display: none;
+}
+
+// الهامبرجر مخفي على الديسكتوب، بيظهر فقط على الشاشات الصغيرة
+.header__hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.55rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 20;
+  flex-shrink: 0;
+
+  span {
+    display: block;
+    width: 2.5rem;
+    height: 0.25rem;
+    background-color: var(--color-very-dark-blue);
+    border-radius: 2px;
+    transition:
+      transform var(--timing-animation) ease,
+      opacity var(--timing-animation) ease;
+  }
+}
+
+// تأثير X على الهامبرجر
+.header__right:has(.header__toggle-input:checked)
+  .header__hamburger
+  span:nth-child(1) {
+  transform: translateY(0.8rem) rotate(45deg);
+}
+.header__right:has(.header__toggle-input:checked)
+  .header__hamburger
+  span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.header__right:has(.header__toggle-input:checked)
+  .header__hamburger
+  span:nth-child(3) {
+  transform: translateY(-0.8rem) rotate(-45deg);
+}
+
+// إظهار القائمة
+.header:has(.header__toggle-input:checked) .header__navigation {
+  display: flex;
+}
+
+// ============================================================
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  padding: 2rem 0;
+  position: relative;
+  position: sticky;
+  top: 0;
+  background-color: var(--color-bg);
+  z-index: 10;
+
+  &::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-bg);
+    border-bottom: 0.1rem solid var(--color-black);
+    z-index: -1;
+    top: 0;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+  &__logo {
+    width: 3rem;
+    max-width: 100%;
+  }
+  &__logoName {
+    font-size: var(--font-size-24);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-very-dark-blue);
+    padding: 0.5rem;
+  }
+
+  &__span {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &__navigation {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    transition: var(--transition-timing);
+
+    &--lists {
+      display: flex;
+      gap: calc(var(--default-padding) * 2);
+      color: var(--color-blue-gray);
+      font-weight: var(--font-weight-regular);
+      padding-top: calc(var(--default-padding) / 2);
+    }
+
+    &--link:link,
+    &--link:visited {
+      text-decoration: none;
+    }
+
+    &--link:hover,
+    &--link:active {
+      text-decoration: underline;
+      color: var(--color-text-rose-red);
+    }
+    .container:has(#about:target) &--about,
+    .container:has(#features:target) &--features,
+    .container:has(#pricing:target) &--pricing,
+    .container:has(#testimonials:target) &--testimonials,
+    .container:has(#help:target) &--help {
+      font-weight: var(--font-weight-bold);
+      text-decoration: underline;
+    }
+  }
+
+  &__right {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  &__btn {
+    font-weight: var(--font-weight-medium);
+  }
+  &__btn--signin {
+    color: var(--color-very-dark-blue);
+    font-size: var(--font-size-16);
+  }
+  &__btn--signup {
+    border: 1px solid var(--color-rose-red);
+    padding: 1rem 3rem;
+  }
+}

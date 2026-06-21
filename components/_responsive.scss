@@ -1,0 +1,359 @@
+/* ===========================
+   LAPTOP / SMALL DESKTOP
+   =========================== */
+@media screen and (max-width: 1280px) {
+  html {
+    font-size: 60%;
+  }
+
+  .container {
+    padding: 0 3rem;
+  }
+
+  .about__title {
+    font-size: var(--font-size-40);
+  }
+
+  .footer {
+    grid-template-columns: 1fr 0.8fr;
+    margin-top: -12rem;
+    padding-top: 17rem;
+  }
+}
+
+/* ===========================
+   TABLET
+   =========================== */
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 58%;
+  }
+
+  .container {
+    padding: 0 2rem;
+  }
+
+  /* ================= HEADER ================= */
+  .header {
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    // إخفاء الـ nav الأفقي واستبداله بالهامبرجر
+    &__navigation {
+      // مخفي بشكل افتراضي — يظهر لما الـ checkbox يتشيك
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: var(--color-bg);
+      border-bottom: 0.1rem solid var(--color-border-inline);
+      padding: 2rem 3rem;
+      z-index: 100;
+
+      &--lists {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding-top: 0;
+      }
+
+      &--link {
+        font-size: var(--font-size-16);
+        display: block;
+        padding: 0.5rem 0;
+      }
+    }
+
+    // لما الـ checkbox يتشيك تظهر القائمة
+    // الـ input و label و nav لازم يكونوا إخوة (siblings) في الـ HTML
+    // الترتيب: input → label(hamburger) → nav → div.right
+  }
+
+  // إظهار القائمة لما الـ checkbox يتشيك
+  .header__toggle-input:checked ~ .header__navigation {
+    display: flex;
+  }
+
+  // إظهار زرار الهامبرجر
+  .header__hamburger {
+    display: flex;
+  }
+
+  /* ================= ABOUT ================= */
+  .about {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+
+    &__imageContent {
+      order: 1;
+      margin: 0 auto;
+      grid-column: 1/-1;
+    }
+
+    &__content {
+      order: 2;
+      align-items: center;
+      text-align: center;
+      margin: var(--default-padding) auto 0;
+    }
+
+    &__title,
+    &__description {
+      max-width: 55rem;
+    }
+
+    &__info {
+      order: 3;
+
+      gap: 2rem;
+      height: auto;
+    }
+
+    &__item:nth-of-type(2) {
+      border: none;
+    }
+  }
+
+  /* ================= FEATURES ================= */
+  .features {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+
+    &__image {
+      order: 1;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    &__content {
+      order: 2;
+      text-align: center;
+      align-items: center;
+    }
+
+    &__description {
+      margin: 0 auto;
+    }
+
+    &__list {
+      text-align: left;
+    }
+  }
+
+  /* ================= PRICING ================= */
+  .pricing {
+    .columns {
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+    .column {
+      flex: 1 1 28rem;
+      padding: calc(var(--default-padding) * 2) 5rem;
+    }
+  }
+
+  /* ================= MAP ================= */
+  .map {
+    padding-top: 0;
+
+    &__title {
+      position: static;
+      transform: none;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    &__image {
+      margin: 4rem 0 2rem;
+    }
+
+    &__platforms {
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    &__platform {
+      width: 18rem;
+      margin: 0;
+
+      &:nth-of-type(3) {
+        width: 22rem;
+      }
+    }
+  }
+
+  /* ================= TESTIMONIALS ================= */
+  .opinions {
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+    align-items: center;
+
+    .opinion {
+      flex: 1;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 55rem;
+      &__text {
+        max-width: 400px;
+      }
+    }
+  }
+
+  /* ================= SUBSCRIBE ================= */
+  .subscribe__card {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .subscribe__leftSide {
+    align-items: center;
+  }
+
+  .subscribe__description {
+    text-align: center;
+  }
+
+  /* ================= FOOTER ================= */
+  .footer {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    margin-top: -10rem;
+    padding-top: 16rem;
+    text-align: left;
+  }
+}
+
+/* ===========================
+   MOBILE
+   =========================== */
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 0 1.5rem;
+    gap: calc(var(--default-padding) * 2);
+    align-items: center;
+  }
+
+  /* HEADER */
+  .header {
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+
+    &__right {
+      gap: 1rem;
+    }
+  }
+  .header__btn--signin {
+    font-size: var(--font-size-14);
+  }
+  .header__btn--signup {
+    padding: 1rem 2rem;
+    font-size: var(--font-size-14);
+  }
+  .header__logoName {
+    font-size: var(--font-size-18);
+  }
+
+  /* ABOUT */
+  .about {
+    &__title {
+      font-size: 3.5rem;
+    }
+    &__info {
+      grid-template-columns: repeat(1, auto);
+      align-items: center;
+    }
+  }
+
+  .h2-heading {
+    font-size: var(--font-size-29);
+  }
+
+  /* PRICING */
+  .pricing .columns {
+    flex-direction: column;
+    align-items: center;
+  }
+  .pricing .column {
+    width: 100%;
+    max-width: 38rem;
+    padding: 4rem 3rem;
+  }
+
+  /* MAP */
+  .map {
+    padding: 4rem 0 0;
+
+    &__platform {
+      width: 14rem;
+
+      &:nth-of-type(3) {
+        width: 18rem;
+      }
+    }
+  }
+
+  /* TESTIMONIALS */
+  .controls {
+    justify-content: center;
+  }
+
+  /* FOOTER */
+  .footer {
+    &__columns {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &__content {
+      align-items: center;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    &__socials {
+      justify-content: center;
+    }
+  }
+}
+
+/* ===========================
+   SMALL MOBILE
+   =========================== */
+@media screen and (max-width: 400px) {
+  html {
+    font-size: 54%;
+  }
+
+  .about__title {
+    font-size: var(--font-size-29);
+  }
+
+  .button-1 {
+    padding: 1rem 3rem;
+  }
+
+  .pricing .column {
+    padding: 3rem 2rem;
+  }
+
+  .pricing .columns {
+    margin-bottom: calc(var(--default-padding) * 3);
+  }
+
+  .footer__columns {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+
+    .footer__column {
+      align-items: center;
+    }
+  }
+}
