@@ -30,25 +30,25 @@
   }
 }
 
-// تأثير X على الهامبرجر
-.header__right:has(.header__toggle-input:checked)
+.header:has(.header__toggle-input:checked)
   .header__hamburger
   span:nth-child(1) {
   transform: translateY(0.8rem) rotate(45deg);
 }
-.header__right:has(.header__toggle-input:checked)
+
+.header:has(.header__toggle-input:checked)
   .header__hamburger
   span:nth-child(2) {
   opacity: 0;
   transform: scaleX(0);
 }
-.header__right:has(.header__toggle-input:checked)
+
+.header:has(.header__toggle-input:checked)
   .header__hamburger
   span:nth-child(3) {
   transform: translateY(-0.8rem) rotate(-45deg);
 }
 
-// إظهار القائمة
 .header:has(.header__toggle-input:checked) .header__navigation {
   display: flex;
 }
